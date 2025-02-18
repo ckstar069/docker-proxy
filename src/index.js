@@ -1,3 +1,7 @@
+const ckstar = {
+  space: "ckstar.space"
+};
+
 addEventListener("fetch", (event) => {
   event.passThroughOnException();
   event.respondWith(handleRequest(event.request));
@@ -7,17 +11,17 @@ const dockerHub = "https://registry-1.docker.io";
 
 const routes = {
   // production
-  ["docker." + ckstar.space]: dockerHub,
-  ["quay." + ckstar.space]: "https://quay.io",
-  ["gcr." + ckstar.space]: "https://gcr.io",
-  ["k8s-gcr." + ckstar.space]: "https://k8s.gcr.io",
-  ["k8s." + ckstar.space]: "https://registry.k8s.io",
-  ["ghcr." + ckstar.space]: "https://ghcr.io",
-  ["cloudsmith." + ckstar.space]: "https://docker.cloudsmith.io",
-  ["ecr." + ckstar.space]: "https://public.ecr.aws",
+  ["docker." + CUSTOM_DOMAIN]: dockerHub,
+  ["quay." + CUSTOM_DOMAIN]: "https://quay.io",
+  ["gcr." + CUSTOM_DOMAIN]: "https://gcr.io",
+  ["k8s-gcr." + CUSTOM_DOMAIN]: "https://k8s.gcr.io",
+  ["k8s." + CUSTOM_DOMAIN]: "https://registry.k8s.io",
+  ["ghcr." + CUSTOM_DOMAIN]: "https://ghcr.io",
+  ["cloudsmith." + CUSTOM_DOMAIN]: "https://docker.cloudsmith.io",
+  ["ecr." + CUSTOM_DOMAIN]: "https://public.ecr.aws",
 
   // staging
-  ["docker-staging." + ckstar.space]: dockerHub,
+  ["docker-staging." + CUSTOM_DOMAIN]: dockerHub,
 };
 
 function routeByHosts(host) {
